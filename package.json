@@ -1,0 +1,41 @@
+{
+  "name": "spotify-to-youtube-bot",
+  "repository": "https://github.com/nzws/spotify-to-youtube-bot.git",
+  "author": "nzws <dev@nzws.me>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint:js": "eslint --cache --ignore-path .gitignore \"**/*.js\"",
+    "lint:prettier": "prettier --check --ignore-path .gitignore .",
+    "lint": "npm-run-all lint:* -s",
+    "format:js": "eslint --cache --fix --ignore-path .gitignore \"**/*.js\"",
+    "format:prettier": "prettier --write --ignore-path .gitignore .",
+    "format": "npm-run-all format:* -s",
+    "build": "cross-env NODE_ENV=production babel src -d build --copy-files",
+    "dev": "nodemon --exec \"cross-env NODE_ENV=development node -r dotenv/config -r @babel/register src\" -e js,json --watch src",
+    "start": "node -r dotenv/config build"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/register": "^7.7.4",
+    "@nzws/prettier-config": "^1.0.0",
+    "@yuzulabo/eslint-config": "^1.0.1",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.1.0",
+    "nodemon": "^2.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5"
+  },
+  "prettier": "@nzws/prettier-config",
+  "dependencies": {
+    "any-router": "^1.1.1",
+    "chalk": "^4.0.0",
+    "discord.js": "^12.2.0",
+    "spotify-web-api-node": "^4.0.0",
+    "youtube-node": "^1.3.3"
+  }
+}
