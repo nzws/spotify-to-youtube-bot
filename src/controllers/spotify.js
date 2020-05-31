@@ -1,7 +1,7 @@
 import spotifyAPI from 'spotify-web-api-node';
 import youtubeAPI from 'youtube-node';
 import { promisify } from 'util';
-import { logDebug } from './utils/logger';
+import { logDebug } from '../utils/logger';
 
 const sAPI = new spotifyAPI({
   clientId: process.env.SPOTIFY_CLIENT_ID,
@@ -57,7 +57,7 @@ const spotify = async (text, msg) => {
   if (!data) {
     return msg.reply('🚨 Not Found');
   }
-  console.log(data);
+  logDebug(data);
 
   let url;
   switch (data.id.kind) {

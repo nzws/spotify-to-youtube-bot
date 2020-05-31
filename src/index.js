@@ -2,7 +2,7 @@ import { Client } from 'discord.js';
 
 import router from './routes';
 import { logInfo, catcher } from './utils/logger';
-import spotify from './spotify';
+import spotify from './controllers/spotify';
 
 const client = new Client();
 
