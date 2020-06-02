@@ -31,7 +31,7 @@ client.on('ready', () => {
     args.splice(0, 1);
 
     if (msg.content.indexOf('https://open.spotify.com') !== -1) {
-      return spotify(msg.content, msg).catch(catcher);
+      return spotify(msg.content, msg).catch(e => catcher(msg, e));
     }
     if (url.slice(0, 1) !== '$') {
       return;
